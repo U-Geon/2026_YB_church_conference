@@ -17,7 +17,7 @@ export default function Contact() {
       </a>
       <p className="mt-3 break-all text-center text-xs text-muted">{OPEN_CHAT_URL}</p>
       <footer className="mt-14 border-t border-line pt-6 pb-10 text-center text-xs text-muted">
-        <p className="font-display text-base tracking-[0.2em] text-fg">wecclesia × 영복교회</p>
+        <p className="font-display text-base tracking-[0.2em] text-fg">영복교회 × wecclesia</p>
         <p className="mt-1">ROAR 청년 컨퍼런스 · 2026.11.14 (SAT)</p>
       </footer>
     </Section>
