@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #141414;
+  --surface: #1e1a18;
+  --surface-2: #2a211d;
+  --line: #3a2d27;
+  --fg: #f7f4ef;
+  --muted: #b9b3ad;
+  --red: #ee2a24;
+  --orange: #f26522;
+  --accent: #ff6a3d;
+  --nav-h: 52px;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface2: var(--surface-2);
+  --color-line: var(--line);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-brand: var(--red);
+  --color-accent: var(--accent);
+  --font-sans: var(--font-noto), system-ui, sans-serif;
+  --font-display: var(--font-anton), Impact, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--nav-h) + 8px);
+  background: var(--bg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-sans);
+  -webkit-tap-highlight-color: transparent;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.grad {
+  background: linear-gradient(180deg, var(--red), var(--orange));
+}
+
+.grad-text {
+  background: linear-gradient(180deg, var(--red), var(--orange));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* 포스터의 '방울' 프레임: 한쪽 모서리만 각진 둥근 사각형 */
+.blob {
+  border-radius: 9999px 0 9999px 9999px;
+}
