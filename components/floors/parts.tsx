@@ -2,13 +2,14 @@ import type { ReactNode } from "react";
 
 const FONT = "var(--font-noto), sans-serif";
 
-type Tone = "room" | "hot" | "pop" | "util";
+type Tone = "room" | "hot" | "pop" | "util" | "edge";
 
 const TONES: Record<Tone, { fill: string; stroke: string; text: string }> = {
   room: { fill: "#2a211d", stroke: "#4a3a32", text: "#f7f4ef" },
   hot: { fill: "#ee2a24", stroke: "#ff6a3d", text: "#ffffff" },
   pop: { fill: "#4a2418", stroke: "#ff6a3d", text: "#ffb59c" },
   util: { fill: "#211a17", stroke: "#4a3a32", text: "#ff6a3d" },
+  edge: { fill: "#2a211d", stroke: "#ee2a24", text: "#f7f4ef" },
 };
 
 export function Plan({ w, h, label, children }: { w: number; h: number; label: string; children: ReactNode }) {
@@ -62,6 +63,32 @@ export function Door({ x, y, w, h, vertical = false, size = 16 }: { x: number; y
       <text x={cx} y={cy} textAnchor="middle" dominantBaseline="central" fontSize={size} fontWeight={700} fill="#ff6a3d" fontFamily={FONT} transform={vertical ? `rotate(-90 ${cx} ${cy})` : undefined}>
         출입구
       </text>
+    </g>
+  );
+}
+
+/** 박스 없이 도면 위에 바로 올리는 라벨 (열린 공간 표기용) */
+export function Label({ x, y, lines, size = 20, color = "#f7f4ef" }: { x: number; y: number; lines: string[]; size?: number; color?: string }) {
+  const lh = size * 1.3;
+  const top = y - ((lines.length - 1) * lh) / 2;
+  return (
+    <g>
+      {lines.map((l, i) => (
+        <text key={l} x={x} y={top + i * lh} textAnchor="middle" dominantBaseline="central" fontSize={size} fontWeight={700} fill={color} fontFamily={FONT}>
+          {l}
+        </text>
+      ))}
+    </g>
+  );
+}
+
+/** 우측 벽에 붙은 엘리베이터 (라벨이 박스 왼쪽으로 겹쳐 나오는 PPT 표기를 따름) */
+export function ElevatorSide({ x, y, w, h, labelX, labelY }: { x: number; y: number; w: number; h: number; labelX: number; labelY: number }) {
+  return (
+    <g>
+      <rect x={x} y={y} width={w} height={h} rx={6} fill="#211a17" stroke="#4a3a32" strokeWidth={1.5} />
+      <text x={x + w / 2} y={y + 22} textAnchor="middle" dominantBaseline="central" fontSize={24} fontWeight={900} fill="#ff6a3d" fontFamily={FONT}>E</text>
+      <text x={labelX} y={labelY} textAnchor="middle" dominantBaseline="central" fontSize={14} fill="#b9b3ad" fontFamily={FONT}>엘리베이터</text>
     </g>
   );
 }
