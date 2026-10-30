@@ -45,6 +45,11 @@ export default function FloorGuide() {
             </div>
           ))}
         </dl>
+        {"notice" in floor && (
+          <p className="mt-4 rounded-xl bg-surface2 px-4 py-3 text-center text-sm font-bold text-accent">
+            ※ {floor.notice}
+          </p>
+        )}
       </div>
     </Section>
   );
