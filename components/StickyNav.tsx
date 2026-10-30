@@ -25,7 +25,7 @@ export default function StickyNav() {
       className="sticky top-0 z-30 border-b border-line bg-bg/90 backdrop-blur"
       style={{ height: "var(--nav-h)", paddingTop: "env(safe-area-inset-top)" }}
     >
-      <ul className="flex h-full items-center gap-1 overflow-x-auto px-3 [scrollbar-width:none]">
+      <ul className="flex h-full items-center gap-1 overflow-x-auto px-3 [scrollbar-width:none] [&>li:first-child]:ml-auto [&>li:last-child]:mr-auto">
         {NAV.map((n) => (
           <li key={n.id} className="shrink-0">
             <a
