@@ -18,11 +18,11 @@ export default function Floor4() {
       <Room x={488} y={20} w={99} h={49} />
       <Room x={19} y={77} w={43} h={235} />
       <Room x={79} y={77} w={104} h={234} />
-      <Room x={204} y={77} w={116} h={116} lines={["선택 세션1", "참가자석"]} tone="edge" size={17} />
-      <Room x={204} y={193} w={116} h={116} />
-      <Room x={344} y={77} w={116} h={116} lines={["선택 세션2", "참가자석"]} tone="edge" size={17} />
-      <Room x={344} y={194} w={116} h={119} />
       <Room x={488} y={77} w={99} h={235} />
+      <Room x={204} y={193} w={116} h={116} />
+      <Room x={344} y={194} w={116} h={119} />
+      <Room x={204} y={77} w={116} h={116} lines={["선택 세션1", "참가자석"]} tone="edge" size={17} />
+      <Room x={344} y={77} w={116} h={116} lines={["선택 세션2", "참가자석"]} tone="edge" size={17} />
 
       {/* 집회장/로비 경계와 출입문 */}
       <line x1={7} y1={347} x2={613} y2={347} stroke="#8a7a70" strokeWidth={2} />
