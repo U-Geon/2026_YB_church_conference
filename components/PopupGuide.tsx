@@ -1,4 +1,5 @@
 import Section from "./Section";
+import FloorLink from "./FloorLink";
 import { POPUPS, POPUP_PLACES } from "@/lib/content";
 
 export default function PopupGuide() {
@@ -18,7 +19,7 @@ export default function PopupGuide() {
       <h3 className="mt-8 mb-3 text-lg font-black">운영 위치</h3>
       <div className="grid gap-3">
         {POPUP_PLACES.map((p) => (
-          <a key={p.floor} href="#floor" className="flex items-center gap-4 rounded-2xl border border-line bg-surface p-4">
+          <FloorLink key={p.floor} floor={p.floor} className="flex items-center gap-4 rounded-2xl border border-line bg-surface p-4">
             <span className="grad flex h-14 w-14 shrink-0 items-center justify-center font-display text-2xl" style={{ borderRadius: "9999px 0 9999px 9999px" }}>
               {p.floor}
             </span>
@@ -28,7 +29,7 @@ export default function PopupGuide() {
                 <span key={l} className="block text-sm text-muted">{l}</span>
               ))}
             </span>
-          </a>
+          </FloorLink>
         ))}
       </div>
       <p className="mt-4 rounded-xl bg-surface2 px-4 py-3 text-sm text-accent">

@@ -1,17 +1,27 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Section from "./Section";
 import Floor1 from "./floors/Floor1";
 import Floor2 from "./floors/Floor2";
 import Floor3 from "./floors/Floor3";
 import Floor4 from "./floors/Floor4";
 import { FLOORS } from "@/lib/content";
+import { SELECT_FLOOR_EVENT } from "./FloorLink";
 
 const PLANS = { "1F": Floor1, "2F": Floor2, "3F": Floor3, "4F": Floor4 } as const;
 
 export default function FloorGuide() {
   const [id, setId] = useState<(typeof FLOORS)[number]["id"]>("1F");
+  useEffect(() => {
+    const onSelect = (e: Event) => {
+      const next = FLOORS.find((f) => f.id === (e as CustomEvent<string>).detail);
+      if (next) setId(next.id);
+    };
+    window.addEventListener(SELECT_FLOOR_EVENT, onSelect);
+    return () => window.removeEventListener(SELECT_FLOOR_EVENT, onSelect);
+  }, []);
+
   const floor = FLOORS.find((f) => f.id === id)!;
   const Plan = PLANS[id];
 
