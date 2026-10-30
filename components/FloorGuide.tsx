@@ -17,6 +17,9 @@ export default function FloorGuide() {
 
   return (
     <Section id="floor" eyebrow="FLOOR GUIDE" title="층별 안내도">
+      <p className="mb-4 text-sm leading-relaxed text-muted">
+        엘리베이터는 거동이 불편하신 분 등 꼭 필요한 분들께 양보해 주시고, 가급적 계단을 이용해 주세요.
+      </p>
       <div role="tablist" aria-label="층 선택" className="mb-4 grid grid-cols-4 gap-2">
         {FLOORS.map((f) => (
           <button

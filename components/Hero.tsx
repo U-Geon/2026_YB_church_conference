@@ -24,11 +24,6 @@ export default function Hero() {
             </dd>
           </div>
         </dl>
-        <p className="mt-4 text-sm leading-relaxed text-muted">
-          화장실은 1~3층 엘리베이터 좌측에 있습니다.
-          <br />
-          엘리베이터는 거동이 불편하신 분 등 꼭 필요한 분들께 양보해 주시고, 가급적 계단을 이용해 주세요.
-        </p>
       </div>
     </header>
   );
