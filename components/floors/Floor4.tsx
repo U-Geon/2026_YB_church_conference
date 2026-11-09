@@ -38,9 +38,9 @@ export default function Floor4() {
       <Room x={7} y={414} w={100} h={79} lines={["좌측", "계단"]} tone="edge" size={20} />
       <Room x={512} y={414} w={101} h={79} lines={["우측", "계단"]} tone="edge" size={20} />
 
-      {/* 입장 방향: 좌측은 양방향(입장·재입장), 우측은 단방향 */}
-      <line x1={165} y1={451} x2={282} y2={407} stroke={ARROW} strokeWidth={2} markerStart="url(#f4-arrow)" markerEnd="url(#f4-arrow)" />
-      <line x1={465} y1={443} x2={346} y2={407} stroke={ARROW} strokeWidth={2} markerEnd="url(#f4-arrow)" />
+      {/* 입장 방향: 좌측은 단방향, 우측은 양방향(입장·재입장) */}
+      <line x1={165} y1={451} x2={282} y2={407} stroke={ARROW} strokeWidth={2} markerEnd="url(#f4-arrow)" />
+      <line x1={346} y1={407} x2={465} y2={443} stroke={ARROW} strokeWidth={2} markerStart="url(#f4-arrow)" markerEnd="url(#f4-arrow)" />
       <text x={310} y={445} textAnchor="middle" dominantBaseline="central" fontSize={16} fontWeight={700} fill="#ff6a3d" fontFamily={FONT}>입장 방향</text>
     </Plan>
   );
