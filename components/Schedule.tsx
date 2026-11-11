@@ -11,7 +11,7 @@ export default function Schedule() {
             <span className="grad absolute -left-[7px] top-1.5 h-3 w-3 rounded-full" />
             <p className="font-display text-xl tracking-wide text-accent">{s.time}</p>
             <p className="font-bold">{s.title}</p>
-            <p className="text-sm text-muted">{s.note}</p>
+            {s.note && <p className="text-sm text-muted">{s.note}</p>}
           </li>
         ))}
       </ol>
